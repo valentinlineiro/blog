@@ -1,0 +1,15 @@
+---
+import { getCollection } from 'astro:content';
+const { slug } = Astro.params;
+const posts = await getCollection('posts');
+const post = posts.find((p) => p.slug === slug);
+if (!post) return Astro.redirect('/404');
+const { Content } = await post.render();
+---
+<html lang="es">
+  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width" /><title>{post.data.title} · Valen</title></head>
+  <body><main><a href="/">← Valen</a><article><time>{post.data.date.toLocaleDateString('es-ES')}</time><h1>{post.data.title}</h1><Content /></article></main></body>
+</html>
+<style>
+:global(body){margin:0;background:#fafafa;color:#181818;font-family:system-ui,sans-serif;line-height:1.7}main{max-width:720px;margin:auto;padding:48px 24px}a{color:inherit}article{margin-top:56px}h1{font-size:2.5rem;line-height:1.15}time{color:#777}
+</style>
