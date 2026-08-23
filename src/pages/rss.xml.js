@@ -3,6 +3,8 @@ import { getCollection } from 'astro:content';
 
 export async function GET(context) {
   const posts = await getCollection('posts');
+  const base = import.meta.env.BASE_URL;
+
   return rss({
     title: 'Valen',
     description: 'Notas sobre software, sistemas, ideas y vida cotidiana.',
@@ -11,7 +13,7 @@ export async function GET(context) {
       title: post.data.title,
       pubDate: post.data.date,
       description: post.data.description,
-      link: `/posts/${post.slug}/`
+      link: `${base}posts/${post.slug}/`
     }))
   });
 }
