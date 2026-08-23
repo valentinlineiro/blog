@@ -3,19 +3,18 @@ import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
-  return posts.map((post) => ({
-    params: { slug: post.slug },
-    props: { post }
-  }));
+  return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
 }
 
 const { post } = Astro.props;
 const { Content } = await post.render();
+const base = import.meta.env.BASE_URL;
 ---
 <html lang="es">
-  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width" /><title>{post.data.title} · Valen</title></head>
-  <body><main><a href="/blog/">← Valen</a><article><time datetime={post.data.date.toISOString()}>{post.data.date.toLocaleDateString('es-ES')}</time><h1>{post.data.title}</h1><Content /></article></main></body>
-</html>
+<head><meta charset="utf-8" /><meta name="viewport" content="width=device-width" /><meta name="theme-color" content="#0b0d10" /><title>{post.data.title} · Valen</title></head>
+<body><main><header><a href={base}>Valen</a><nav><a href={`${base}archivo/`}>Archivo</a><a href={`${base}sobre/`}>Sobre</a></nav></header>
+<article><a class="back" href={`${base}archivo/`}>← Archivo</a><time datetime={post.data.date.toISOString()}>{post.data.date.toLocaleDateString('es-ES', { day: '2-digit', month: 'long', year: 'numeric' })}</time><h1>{post.data.title}</h1>{post.data.description && <p class="lead">{post.data.description}</p>}<div class="content"><Content /></div></article>
+<footer><a href={`${base}archivo/`}>← Más notas</a></footer></main></body></html>
 <style>
-:global(body){margin:0;background:#fafafa;color:#181818;font-family:system-ui,sans-serif;line-height:1.7}main{max-width:720px;margin:auto;padding:48px 24px}a{color:inherit}article{margin-top:56px}h1{font-size:2.5rem;line-height:1.15}time{color:#777}
+:global(*){box-sizing:border-box}:global(html),:global(body){background:#0b0d10}:global(body){margin:0;color:#e8e3da;font-family:Inter,ui-sans-serif,system-ui,sans-serif;line-height:1.8}main{max-width:900px;min-height:100vh;margin:auto;padding:0 48px}header{height:92px;border-bottom:1px solid #1d2025;display:flex;align-items:center;justify-content:space-between}header>a{font:1.55rem Georgia,serif;text-decoration:none}nav{display:flex;gap:34px}nav a{color:#858a92;text-decoration:none}nav a:hover{color:#e8e3da}article{max-width:700px;margin:auto;padding:78px 0}.back{display:block;color:#777d85;text-decoration:none;margin-bottom:58px}.back:hover{color:#e8e3da}time{display:block;color:#d7a66a;font-size:.82rem;letter-spacing:.05em}h1{font:400 clamp(3rem,7vw,5rem)/1.05 Georgia,serif;letter-spacing:-.045em;margin:14px 0 28px}.lead{font-size:1.2rem;color:#969ba3;margin:0 0 50px}.content{font-size:1.1rem;color:#b7bbc1}.content :global(h2){font:400 2rem/1.2 Georgia,serif;color:#e8e3da;margin:52px 0 18px}.content :global(h3){color:#e8e3da}.content :global(p){margin:0 0 26px}.content :global(a){color:#d7a66a}.content :global(blockquote){margin:32px 0;padding-left:22px;border-left:2px solid #d7a66a;color:#969ba3}.content :global(code){font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#d7a66a}.content :global(pre){overflow:auto;padding:20px;background:#111419;border:1px solid #24272d;border-radius:4px}footer{border-top:1px solid #24272d;padding:34px 0 42px}footer a{color:#777d85;text-decoration:none}footer a:hover{color:#e8e3da}@media(max-width:640px){main{padding:0 24px}header{height:78px}nav{gap:20px}article{padding:58px 0}.back{margin-bottom:42px}h1{font-size:3.1rem}.content{font-size:1.05rem}}
 </style>
