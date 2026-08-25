@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="128" height="128">
+  <rect width="32" height="32" rx="4" fill="#0B0D10"/>
+  <!-- Direction A: 3 arcs, incomplete cycle -->
+  <g fill="none" stroke-linecap="round" stroke-width="1.8">
+    <path d="M16 6 A10 10 0 0 1 26.5 14" stroke="#E8E3DA"/>
+    <path d="M26.5 18.5 A10 10 0 0 1 14 26.5" stroke="#D7A66A"/>
+    <path d="M10.5 24.5 A10 10 0 0 1 6.5 12" stroke="#6FA8A8"/>
+  </g>
+  <!-- gap hint -->
+  <circle cx="11" cy="7.5" r="1" fill="#0B0D10"/>
+</svg>
