@@ -1,9 +1,11 @@
 ---
-title: "Hola, mundo"
+title: "A Small Place on the Internet"
 date: 2026-08-22
-description: "Un espacio personal para escribir, observar y construir."
+description: "A personal notebook for ideas that are worth keeping."
 ---
 
-Este es mi pequeño espacio en Internet.
+This is my small place on the Internet.
 
-Aquí escribiré sobre las cosas que estoy aprendiendo, construyendo y observando.
+I write about software, systems, ideas, and the things I notice while building them.
+
+The useful part is not having answers. It is keeping the questions that change how I work.
