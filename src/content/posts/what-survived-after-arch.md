@@ -1,6 +1,6 @@
 ---
 title: "What Survived After I Tore My System Apart"
-date: 2026-09-01
+date: 2026-08-30
 description: "How dismantling ARCH led to TAKT — and why the most useful architecture was what survived the collapse."
 ---
 
@@ -38,6 +38,8 @@ It appeared in the boundary between deciding and executing.
 
 A proposal could become implementation too easily. A mechanism could exist because another mechanism expected it. Governance could be added to compensate for an abstraction that was already wrong.
 
+For example, `cost-morphism` survived as a whole subtree even after no live contract depended on it; keeping the implementation branch had become inertia rather than value.
+
 The system was becoming better at managing work without necessarily becoming better at deciding which work deserved to exist.
 
 That was the signal I cared about.
@@ -55,6 +57,8 @@ I deliberately stopped doing that.
 Instead, I started asking a more uncomfortable question about every component:
 
 > What contract does this actually protect?
+
+For one concrete class of dead weight, the answer was simply "none": after re-auditing the tree, `strategy/` and `batch-f-004/` had no path to the live contract, so I removed them instead of building another mechanism around them.
 
 If the answer was unclear, the component did not get to survive merely because it already existed.
 
@@ -111,10 +115,6 @@ The repository also contains a concrete record of that contraction. A later TAKT
 
 Those numbers are less important than what they show: **the system was allowed to get smaller without pretending that everything removed had been useless.**
 
-> **TODO — add verified quantitative before/after evidence here.**
->
-> Candidate evidence to extract from the project history: test/runtime size, number of components retired, cards or workflow steps eliminated, implementation surface before/after, or any measured reduction in execution time or operator effort. Do not use a number unless the repository or an experiment records it explicitly.
-
 ## What surprised me
 
 The biggest improvement was not making execution faster.
@@ -164,5 +164,5 @@ ARCH taught me that by becoming something I was eventually willing to destroy.
 TAKT is what remained worth keeping.
 
 > **TAKT was discovered in what remained.**
-
-— Valen
+>
+> — [About Valen](/blog/about/)
