@@ -20,7 +20,7 @@ const formatDate = (date) =>
   <body>
     <div class="page">
       <header class="nav">
-        <a class="brand" href={base}>Valen</a>
+        <a class="brand" href={base}><img src={`${base}brand/takt.svg`} alt="" width="20" height="20" />Valen</a>
         <nav aria-label="Main navigation">
           <a href={`${base}archive/`}>Archive</a>
           <a href={`${base}about/`}>About</a>
@@ -65,7 +65,8 @@ const formatDate = (date) =>
   :global(:focus-visible) { outline: 2px solid #d7a66a; outline-offset: 4px; }
   .page { max-width: 900px; min-height: 100vh; margin: 0 auto; padding: 0 48px; display: flex; flex-direction: column; }
   .nav { height: 92px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #1d2025; }
-  .brand { font-family: Georgia, "Times New Roman", serif; font-size: 1.55rem; text-decoration: none; letter-spacing: -0.02em; }
+  .brand { display: inline-flex; align-items: center; gap: 10px; font-family: Georgia, "Times New Roman", serif; font-size: 1.55rem; text-decoration: none; letter-spacing: -0.02em; }
+  .brand img { display: block; }
   nav { display: flex; gap: 34px; }
   nav a { position: relative; color: #9aa0a8; text-decoration: none; font-size: .95rem; }
   nav a:hover, nav a.active { color: #e8e3da; }
