@@ -165,4 +165,4 @@ TAKT is what remained worth keeping.
 
 > **TAKT was discovered in what remained.**
 >
-> — [About Valen](/blog/about/)
+> — [About Valentín Liñeiro](/blog/about/)

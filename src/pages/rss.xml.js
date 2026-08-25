@@ -6,7 +6,7 @@ export async function GET(context) {
   const base = import.meta.env.BASE_URL;
 
   return rss({
-    title: 'Valen',
+    title: 'Valentín Liñeiro',
     description: 'Notas sobre software, sistemas, ideas y vida cotidiana.',
     site: context.site,
     items: posts.map((post) => ({
